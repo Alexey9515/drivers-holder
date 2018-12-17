@@ -1,5 +1,6 @@
 package ru.pqm.template.ui.drivers;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.remote.BrowserType;
@@ -23,5 +24,11 @@ public class DriversHolderTest {
         driversHolder.openWebDriver(name, BrowserType.CHROME);
         driversHolder.changeWebDriver(name);
         assertNotNull(driversHolder.getWebDriver());
+    }
+
+
+    @After
+    public void destroy() {
+        driversHolder.close("test-chrome");
     }
 }

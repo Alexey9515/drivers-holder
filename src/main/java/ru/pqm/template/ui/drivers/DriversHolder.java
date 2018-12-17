@@ -35,7 +35,7 @@ public class DriversHolder {
 
     public WebDriver getWebDriver() {
         if (changedDriver == null) {
-            throw new DriverNotFoundException("Not found changed driver. Please, activate driver by key");
+            throw new DriverNotFoundException("Not found changed driver. Please, activate driver by name");
         }
         return changedDriver;
     }
@@ -63,5 +63,11 @@ public class DriversHolder {
 
     public void setDriverFactory(DriverFactory driverFactory) {
         this.driverFactory = driverFactory;
+    }
+
+    public void close(String name) {
+        if (webDrivers.containsKey(name)) {
+            webDrivers.get(name).close();
+        }
     }
 }
