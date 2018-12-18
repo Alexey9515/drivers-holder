@@ -26,9 +26,17 @@ public class DriversHolderTest {
         assertNotNull(driversHolder.getWebDriver());
     }
 
+    @Test
+    public void changeWebDriver(){
+        driversHolder.openWebDriver("ie",BrowserType.IE);
+        driversHolder.changeWebDriver("ie");
+        assertNotNull(driversHolder.getWebDriver());
+
+    }
 
     @After
     public void destroy() {
         driversHolder.close("test-chrome");
+        driversHolder.close("ie");
     }
 }
