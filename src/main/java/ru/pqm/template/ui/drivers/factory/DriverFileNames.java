@@ -1,8 +1,8 @@
 package ru.pqm.template.ui.drivers.factory;
 
 public enum DriverFileNames {
-    CHROME("chrome","chromedriver.exe");
-
+    CHROME("chrome","chromedriver.exe"),
+    IE("internet explorer","MicrosoftWebDriver.exe");
     private String browserType;
     private String fileName;
 

@@ -39,6 +39,10 @@ public class DefaultDriverFactory implements DriverFactory {
                 return new SafariDriver((SafariOptions) driverSetting.getMutableCapabilities());
             }
             case BrowserType.IE: {
+                System.setProperty("webdriver.ie.driver"
+                        , Paths.get(System.getProperty("user.dir"))
+                                .resolve(driverSetting.getDriversPath())
+                                .resolve(DriverFileNames.getFileName(driverSetting.getBrowserType())).toString());
                 return new InternetExplorerDriver((InternetExplorerOptions) driverSetting.getMutableCapabilities());
             }
             default:
